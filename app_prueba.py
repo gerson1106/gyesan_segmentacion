@@ -1,6 +1,5 @@
 import os
 os.environ["SM_FRAMEWORK"] = "tf.keras"
-import base64
 from tensorflow import keras
 import os
 import numpy as np
@@ -69,17 +68,17 @@ st.markdown("""
 La segmentación es un proceso en el campo de la visión por computadora que se utiliza para dividir o separar una imagen en partes significativas o regiones con características similares. Es como dividir una imagen en diferentes "pedazos" que contienen objetos o elementos que queremos identificar o analizar por separado. Este método es útil en muchas aplicaciones, como reconocimiento de objetos, medicina, procesamiento de imágenes y más, ya que permite comprender y trabajar con partes específicas de una imagen en lugar de tratarla como un conjunto completo. Funciona seleccionando características visuales y aplicando algoritmos para separar la imagen en regiones relevantes.
 </p>
 """, unsafe_allow_html=True)
-#seg = "segmen.jpeg"
-#imagen2 = Image.open(seg)
+seg = "segmen.jpeg"
+imagen2 = Image.open(seg)
 
 # Crea tres columnas
-#col1, col2, col3 = st.columns([1,6,1])
+col1, col2, col3 = st.columns([1,6,1])
 
 # Muestra la imagen en la columna del medio
-#with col2:
-    #st.image(imagen2, caption="Segmentación imagen satelital", width=800)
-#st.markdown("")
-#st.markdown("")
+with col2:
+    st.image(imagen2, caption="Segmentación imagen satelital", width=800)
+st.markdown("")
+st.markdown("")
 st.markdown("<h2 style='color: black;'>Características de la tipología segmentada</h2>", unsafe_allow_html=True)
 st.markdown("")
 st.markdown("")
@@ -112,24 +111,24 @@ st.markdown("""
 ⬛ Áreas no interés: La segmentación de no áreas de no interés consta de aquellas zonas que no son relevantes dentro de la imagen tales como caminos, zonas rocosas, sombras y erosiones.
 </p>
 """, unsafe_allow_html=True)
-#st.markdown("<h2 style='color: black;'>Video para adquirir imagenes satelitales</h2>", unsafe_allow_html=True)
-#st.markdown("")
-#st.markdown("")
+st.markdown("<h2 style='color: black;'>Video para adquirir imagenes satelitales</h2>", unsafe_allow_html=True)
+st.markdown("")
+st.markdown("")
 # URL del video (o ruta local del archivo de video)
 
-#video_url = "Google_earth.mp4"  # Reemplaza con la URL o ruta de tu video
-#container_width = 480  # Puedes cambiar este valor según lo desees
-#container_height = 270  # Puedes cambiar este valor según lo desees
+video_url = "Google_earth.mp4"  # Reemplaza con la URL o ruta de tu video
+container_width = 480  # Puedes cambiar este valor según lo desees
+container_height = 270  # Puedes cambiar este valor según lo desees
 
 # Agregar el contenedor del video con el ancho y alto personalizados
-#video_html = f'<video width="{container_width}" height="{container_height}" controls><source src="{video_url}" type="video/mp4"></video>'
+video_html = f'<video width="{container_width}" height="{container_height}" controls><source src="{video_url}" type="video/mp4"></video>'
 # Crea tres columnas
-#col1, col2, col3 = st.columns([1,3,1])
-#with col2:
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
 # Mostrar el video usando HTML personalizado
  
  # Agregar el reproductor de video
- #st.video(video_url)
+ st.video(video_url)
 st.markdown("<h2 style='color: black;'>Área de experimentación</h2>", unsafe_allow_html=True)
 # Path del modelo preentrenado
 #MODEL_PATH = "C:/Users/gerso/OneDrive/Escritorio/pajaros/API_DeepLearning-master/models/model_VGG16.h5"
