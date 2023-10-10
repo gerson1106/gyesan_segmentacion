@@ -13,8 +13,6 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 scaler = MinMaxScaler()
 from smooth_tiled_predictions import *
 import time
-import logging
-logging.basicConfig(level=logging.INFO)
 CUDA_VISIBLE_DEVICES=0,1
 st.set_page_config(page_icon="🌳", page_title="G&ESan-SEGMENTACIÓN", layout="wide")
 logo="logo-udi-negro.png"
@@ -119,19 +117,19 @@ st.markdown("")
 st.markdown("")
 # URL del video (o ruta local del archivo de video)
 
-video_url = "Google_earth.mp4"  # Reemplaza con la URL o ruta de tu video
-container_width = 480  # Puedes cambiar este valor según lo desees
-container_height = 270  # Puedes cambiar este valor según lo desees
+#video_url = "Google_earth.mp4"  # Reemplaza con la URL o ruta de tu video
+#container_width = 480  # Puedes cambiar este valor según lo desees
+#container_height = 270  # Puedes cambiar este valor según lo desees
 
 # Agregar el contenedor del video con el ancho y alto personalizados
-video_html = f'<video width="{container_width}" height="{container_height}" controls><source src="{video_url}" type="video/mp4"></video>'
+#video_html = f'<video width="{container_width}" height="{container_height}" controls><source src="{video_url}" type="video/mp4"></video>'
 # Crea tres columnas
-col1, col2, col3 = st.columns([1,3,1])
-with col2:
+#col1, col2, col3 = st.columns([1,3,1])
+#with col2:
 # Mostrar el video usando HTML personalizado
  
  # Agregar el reproductor de video
- st.video(video_url)
+ #st.video(video_url)
 st.markdown("<h2 style='color: black;'>Área de experimentación</h2>", unsafe_allow_html=True)
 # Path del modelo preentrenado
 #MODEL_PATH = "C:/Users/gerso/OneDrive/Escritorio/pajaros/API_DeepLearning-master/models/model_VGG16.h5"
