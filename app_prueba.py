@@ -174,26 +174,22 @@ with c30:
 
     image_rgb = Image.open(img_file_buffer).convert('RGB')
     
-    #img = cv2.imdecode(np.frombuffer(img_file_buffer.read(), np.uint8), 1)
+    
     if image_rgb is None:
          st.error("El archivo cargado está vacío. Por favor, carga un archivo válido.")
     else:
          img_array_rgb = np.array(image_rgb)
          img = img_array_rgb[:, :, ::-1]
     
-    #col1.header("img_file_buffer")
+    
     image = np.array(Image.open(img_file_buffer))    
     st.image(image, caption="", use_column_width=False, width=550)
-    #col1.image(image, use_column_width=True, channels="BGR")
+    
     #Predict using smooth blendi
     input_img = scaler.fit_transform(img.reshape(-1, img.shape[-1])).reshape(img.shape)
 
     from keras.models import load_model
     model = load_model("modelo_200_img_120_epc.hdf5", compile=False)
-
-
-    #prediction_image = Image.fromarray(prediction_with_smooth_blending)
-    #st.image(prediction_image, caption="Predicción", use_column_width=False,width=280)
 
     with c30:
       with col1:
@@ -201,7 +197,7 @@ with c30:
         mensaje_espera = st.empty()
         mensaje_espera.text("Procesando imagen... Esto puede tomar un minuto...")
         # Realiza aquí tus operaciones de procesamiento de imagen
-        time.sleep(8)  # Ejemplo de espera (reemplaza con el procesamiento real)
+        time.sleep(8) 
 
         # Borra el mensaje de espera
         mensaje_espera.empty()
@@ -298,7 +294,7 @@ with c30:
         mensaje_espera = st.empty()
         mensaje_espera.text("Imagen segmentada---->")
         # Realiza aquí tus operaciones de procesamiento de imagen
-        time.sleep(2)  # Ejemplo de espera (reemplaza con el procesamiento real)
+        time.sleep(2)
 
         # Borra el mensaje de espera
         mensaje_espera.empty()
@@ -329,19 +325,14 @@ with c30:
             Hectarias_Forestacion_Baja = round(Hectarias_Forestacion_Baja, 2)
             Hectarias_Laguna = round(Hectarias_Laguna, 2)
 
-           #st.write('<span style="font-size: 24px;">🟢 Forestacion Alta</span>', unsafe_allow_html=True)
+           
             st.markdown(f'<p class="texto-negro">🟢 Forestacion Alta: {Hectarias_Forestacion_Alta} Hectáreas</p>', unsafe_allow_html=True)
             st.markdown(f'<p class="texto-negro">🟡 Forestacion Baja: {Hectarias_Forestacion_Baja} Hectáreas</p>', unsafe_allow_html=True)
             st.markdown(f'<p class="texto-negro">🔴 Edificaciones: {Hectarias_Edificaciones} Hectáreas</p>', unsafe_allow_html=True)
             st.markdown(f'<p class="texto-negro">🔵 Cultivos: {Hectarias_Cultivos} Hectáreas</p>', unsafe_allow_html=True)
             st.markdown(f'<p class="texto-negro">🟣 Lagunas: {Hectarias_Laguna} Hectáreas</p>', unsafe_allow_html=True)
             st.markdown(f'<p class="texto-negro">⚫ Áreas no interés: {Hectarias_Background} Hectáreas</p>', unsafe_allow_html=True)
-            #st.write('🟢 Forestacion Alta')
-            #st.write('🟡 Forestacion Baja')
-            #st.write('🔴 Edificaciones')
-            #st.write('🔵 Cultivos')
-            #st.write('🟣 Lagunas')
- 
+          
 st.markdown("")
 st.markdown("")
 st.markdown("")
